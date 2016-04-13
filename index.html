@@ -16,8 +16,6 @@
 
         body{
         	font-family: arial; font-size: 80%; line-height: 1.2em; width: 100%; margin: 0; background: Silver;
-        	margin-right: 10px;
-        	margin-left: 10px;
         }
 
 		#header{
@@ -35,13 +33,17 @@
 
         }
         #content{
-        	margin-left: 7.5%;
-        	margin-right: 7.5%;
-        	height: 700px;
+        	width: calc(100%-150px);
     		border-bottom: 1px #ccc solid;
    			margin-bottom: 10px;
    			background: white;
+   			height: 800px;
 
+        }
+        #wrapper > div{
+    		border: 1px #ccc solid;
+            float: left;
+            height: 800px;
         }
 
         #name{
@@ -49,25 +51,25 @@
         	width: 30%;
         	margin-top: 25px;
     		font-family: georgia;
-    		display: inline-block;
+    		display: block;
         }
 
         #menu{
-        	height: 700px;
-		    display: inline-block;
+        	margin: 0px auto;
+    		border: 1px #ccc solid;
+        	width: 150px;
+		    padding: 0;
 		    text-align: left;
-		    float: right;
+		    height: 800px;
 		}
 		#menu ul{
-    		display: inline-block;
-			float:right;
+        	margin-top: 10px;
+		    padding: 0;
 		}
 
 		#menu ul li{
-    		display: inline-block;
     		list-style: none;
 		    height: 62px;
-    		line-height: 62px;
 		}
 		#menu ul li a{
 		    padding: 20px;
@@ -94,15 +96,11 @@
 			font-size: 1.9em; 
 		}
 
-
-
-
+		
 	</style>
 
 </head>
 <body>
-
-<!-- webpage content goes here in the body -->
 
 	<div id="page">
 
@@ -110,6 +108,8 @@
 			<div id="name">
 				<h1><a>My First Website</a></h1>
 			</div>
+		</div>
+		<div id="wrapper">
 			<div id="menu">
 				<ul>
 					<li><a href="https://www.google.com">First link</a></li>
@@ -117,15 +117,15 @@
 					<li><a href="https://www.youtube.com">And another one</a></li>
 				</ul>
 			</div>
-		</div>
-		<div id="content">
-			<h2>Home</h2>
-			<p>
-				There should be some content, but I'm too lazy to add it:(
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid commodi consequatur, deleniti, dignissimos dolor earum facilis laborum laudantium maxime molestias numquam officiis optio perspiciatis quis repellat sed veritatis.
-			</p>
+			<div id="content">
+				<h2>Home</h2>
+				<p>
+					There should be some content, but I'm too lazy to add it:(
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid commodi consequatur, deleniti, dignissimos dolor earum facilis laborum laudantium maxime molestias numquam officiis optio perspiciatis quis repellat sed veritatis.
+				</p>
+			</div>
 		</div>
 		<div id="footer">
 			<p>
