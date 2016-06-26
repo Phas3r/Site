@@ -44,3 +44,6 @@ div.panel.show {
 .remove{
     float:right;
 }
+#textheader{
+    padding-top:10px;
+}

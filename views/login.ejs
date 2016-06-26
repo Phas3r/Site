@@ -41,7 +41,7 @@
         </div>
         <div id="content-wrapper">
             <div id="content">
-                    <h2>Login page</h2>
+                    <div id="textheader"><h2>Login page</h2></div>
                     
                     <p>
                     </p>
@@ -49,6 +49,10 @@
                     </p>
                     <p>
                     </p>
+                
+                <div id="textheader">        
+                    <h3>Sign in</h3>
+                </div>
                 <form method="post" action="/login">
                     <table id="form" >
                         <tr>
@@ -65,6 +69,41 @@
                         </tr>
                     </table>
                 </form>
+                
+                
+                <div id="textheader">        
+                    <h3>Sign up</h3>
+                </div>
+                <table id="sign" >
+                    <tr>
+                    <td>Username:</td>
+                        <td><label><input id="user_name" name="user_name" /></label></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><label><input id="user_password" name="user_password" /></label></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" name="button" value="Sign up" id="signup_button" /></td>
+                    </tr>
+                </table>
+
+                <script>
+                    var form = document.querySelector("#sign");
+                    var user_name = form.querySelector("#user_name");
+                    var user_password = form.querySelector("#user_password");
+                    form.querySelector('#signup_button').addEventListener('click', function(){
+                        var req = new XMLHttpRequest();
+                        var request_text = 'signup?user_name=' + encodeURIComponent(user_name.value) +
+                                            '&user_password=' + encodeURIComponent(user_password.value);
+                        req.open('post', request_text);
+                        req.send();
+                        req.addEventListener('load', function () {
+                            location.replace('/');
+                        });
+                    });
+                </script>
                     
                     
             </div>

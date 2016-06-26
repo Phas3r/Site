@@ -1,6 +1,7 @@
 var express = require('express');
 var sqlite = require('sqlite3');
 var app = express();
+var cookieSecret = 'hehkek'
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 app.set('view engine', 'ejs');
@@ -12,21 +13,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
 app.use(cookieParser());
-app.use(require('express-session')({ secret: 'hehkek', resave: false, saveUninitialized: false }));
+app.use(require('express-session')({ secret: cookieSecret, resave: false, saveUninitialized: false }));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
-function makeHash(psswd, salt) {
-    var hash = crypto.createHash('sha256');
-    hash.update(psswd);
-    hash.update(salt);
-    return hash.digest('hex');
-}
-
-
 
 passport.use(new ls(
     {
@@ -39,6 +29,7 @@ passport.use(new ls(
         return done(null, row);
     });
 }));
+
 passport.serializeUser(function(user, done) {
     return done(null, user.id);
 });
@@ -49,21 +40,22 @@ passport.deserializeUser(function(id, done) {
     });
 });
 
-app.get('/login', function(request, response){
-    if (request.isAuthenticated()) {
-        response.redirect('/');
+app.get('/login', function(req, res){
+    if (req.isAuthenticated()) {
+        res.redirect('/');
     }
-    response.render('login.ejs');
+    res.render('login.ejs');
 });
+
 app.post('/login', passport.authenticate('local',
     {session: true, successRedirect: '/', failureRedirect: '/login' }
 ));
 
-app.all('/*', function(request, response, next) {
-    if (!request.isAuthenticated()) {
-        response.redirect('/login');
+app.all('/*', function(req, res, next) {
+    if (!req.isAuthenticated()) {
+        res.redirect('/login');
     }
-    next();  // call next() here to move on to next middleware/router
+    next();  
 });
 
 app.get('/logout', function (req, res) {
@@ -89,6 +81,12 @@ app.post('/add', function(req, res){
     });
 });
 
+app.post('/signup', function(req, res){
+    var statement = 'insert into Users (name, password) values(?, ?)';
+    db.run(statement, req.query.user_name, req.query.user_password, function () {
+    });
+});
+
 app.delete('/delete', function (req, res) {
     var statement = 'delete from sites where id = ?';
     db.run(statement, req.query.id, function(){
@@ -102,10 +100,14 @@ app.get('/grid', function (req, res) {
    });
 
 
-
-
-
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
     console.log("Listening on " + port);
 });
+
+
+
+
+
+
+

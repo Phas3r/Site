@@ -69,7 +69,6 @@
                                     Link: 
                                     <a href='<%='http://'+item.Url%>'> <%=item.Url%></a>
                                 </div>
-
                                 <div id="line">
                                     Description: 
                                     <%=item.Description%>
@@ -112,13 +111,13 @@
                         var site_link = form.querySelector("#site_link");
                         var site_desc = form.querySelector("#site_desc");
                         form.querySelector("#add_button").addEventListener('click', function(){
-                            var request = new XMLHttpRequest();
+                            var req = new XMLHttpRequest();
                             var request_text = 'add?site_name=' + encodeURIComponent(site_name.value) +
                                                 '&site_link=' + encodeURIComponent(site_link.value) +
                                                 '&site_desc=' + encodeURIComponent(site_desc.value);
-                            request.open('post', request_text);
-                            request.send();
-                            request.addEventListener('load', function () {
+                            req.open('post', request_text);
+                            req.send();
+                            req.addEventListener('load', function () {
                                 location.replace('/');
                             });
                         });
