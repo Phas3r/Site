@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <title>New Website</title>
+
+    <meta name="author" content="Phaser" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/mystyle.css" />    
+    <link rel="stylesheet" href="css/menu.css" />     
+    <link rel="stylesheet" href="css/content.css" /> 
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div id="page_container"> 
+        
+        <script src="script.js"></script>
+        <div id="header">
+            <div id="name">
+                <h1><a>My Website</a></h1>
+            </div>
+        </div>
+        
+        <div id="topnav" >
+            <ul class="topmenu">
+                <li><a href="/login"> Login</a></li>
+                <li><a href="#"> Link2</a></li>
+                <li><a href="#"> Link3</a></li>
+                <li><a href="#"> useful links</a></li>
+                <li class="icon">
+                    <a href="javascript:void(0);" style="font-size:15px;" onclick="showMenu()">Menu ☰</a>
+                </li>
+            </ul>
+        </div>
+        <div id="sidemenu" class="absolute-sidemenu"> <h3 class="head">Main menu</h3>
+            <a href="/">Home</a>
+            <a href="https://www.ya.ru">......</a>
+            <a href="/grid">Grid</a>
+
+        </div>
+        <div id="content-wrapper">
+            <div id="content">
+                    <h2>Home</h2>
+                    
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                <form method="post" action="/login">
+                    <table id="form" >
+                        <tr>
+                        <td>Login:</td>
+                            <td><label><input id="login" name="login" /></label></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td><label><input id="password" name="password" /></label></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" name="button" value="Enter" id="enter_button" /></td>
+                        </tr>
+                    </table>
+                </form>
+                    
+                    
+            </div>
+        </div>
+    </div>
+    
+    <div id="back-top">
+        <span>
+            <a id="backtotop-button"  onclick="window.scroll(0,0)" class="hidden"><img src="img/backtotop.png"></a>
+        </span>
+    </div>
+    <div id="footer">
+        <p>
+            Webpage made by <a href="https://github.com/Phas3r" target="_blank">Phaser</a>
+        </p>
+    </div>
+</body>
+</html>
