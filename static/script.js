@@ -27,11 +27,13 @@
             timer = window.setTimeout(function() {
                 timer = null;
                 scroll();
-            }, 200);
+            }, 20);
         }
     });
 })();
 
-function myFunction() {
+function showMenu() {
     document.getElementsByClassName("topmenu")[0].classList.toggle("responsive");
 }
+
+

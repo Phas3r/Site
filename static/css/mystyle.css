@@ -3,7 +3,7 @@ html, body {
     height: 100%;
 }
 body{
-    font-family: arial;
+    font-family: 'Roboto Slab', serif;
     font-size: 80%;
     line-height: 1.2em;
     margin: 0; 
@@ -95,16 +95,18 @@ header > a{
     float: right;
 }
 
-
+#content div p{
+    line-height: 23px
+}
 #content-wrapper{
-    margin-left: calc(1% + 180px);
+    margin-left: 16%;
     max-width: 1020px;
     width: 84%; 
     height: 100%;
     display: inline-block;
 }
 
-#entry{
+.entry{
     padding: 5px;
 }
 #line{
@@ -133,11 +135,12 @@ header > a{
     #content-wrapper{
         margin-left: auto;
         margin-right: auto;
-        width: 98%; 
+        width: 100%; 
     }
     #backtotop-button {
         display: none;
     }
+    
 }
 
 h2{
@@ -145,6 +148,7 @@ h2{
     font-weight: normal;
     font-size: 1.5em; 
     margin: 0;
+    padding-top: 6px;
 }
 h1{
     padding-top: 15px;
@@ -152,6 +156,12 @@ h1{
     font-weight: normal;
     font-size: 200%; 
 }
-
+h3.head{
+    padding: 0 0 0 7px;
+    margin: 0 0 19px 0; 
+    color: #000;
+    font-weight: normal;
+    font-size: 24px; 
+}
 
 

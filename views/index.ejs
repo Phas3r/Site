@@ -5,12 +5,13 @@
 
     <title>New Website</title>
 
-	<meta name="author" content="Phaser" />
-
+    <meta name="author" content="Phaser" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/mystyle.css" />    
+    <link rel="stylesheet" href="css/menu.css" />     
+    <link rel="stylesheet" href="css/content.css" /> 
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </head>
-<link rel="stylesheet" href="css/normalize.css" />
-<link rel="stylesheet" href="css/mystyle.css" />    
-<link rel="stylesheet" href="css/menu.css" />   
 <body>
     <div id="page_container"> 
         
@@ -28,11 +29,11 @@
                 <li><a href="#"> Link3</a></li>
                 <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> useful links</a></li>
                 <li class="icon">
-                    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">Menu ☰</a>
+                    <a href="javascript:void(0);" style="font-size:15px;" onclick="showMenu()">Menu ☰</a>
                 </li>
             </ul>
         </div>
-        <div id="sidemenu" class="absolute-sidemenu">
+        <div id="sidemenu" class="absolute-sidemenu"> <h3 class="head">Main menu</h3>
             <a href="https://www.google.com">First link</a>
             <a href="https://www.ya.ru">Another link</a>
             <a href="https://www.youtube.com">And another one</a>
@@ -48,27 +49,99 @@
                     </p>
                     <p>
                     </p>
-                    <% items.forEach( function (item) {%>
-                        <div id="entry">
-                            <div id="line">
-                                <%=item.id%>.
+                    <% var i=1;
+                       items.forEach( function (item) {%>
+                        <div class="entry">
+                            <button class="wrapper" id="line">
+                                
+                                <%=i%>.
                                 <%=item.Name%>
-                            </div>
+                            </button>
                                                         
-                            <div id="line">
-                                Link: 
-                                <a href='<%='http://'+item.Url%>'> <%=item.Url%></a>
-                            </div>
-                            
-                            <div id="line">
-                                Description: 
-                                <%=item.Description%>
-                            </div>
+                            <div class="panel">
+                                <div id="line">
+                                    Link: 
+                                    <a href='<%='http://'+item.Url%>'> <%=item.Url%></a>
+                                </div>
+
+                                <div id="line">
+                                    Description: 
+                                    <%=item.Description%>
+                                </div> 
+                            </div>                           
+                            <button class="remove" data-id='<%=item.id%>'>remove</button>
                         </div>
-                    <% });%>
+                    <%i++; });%>
+                    <script src="content.js">                       
+                    </script>
+                
+                
+                
+                
                     <p>
-                    </p>
                     
+                    </p>
+                    <table id="form" class="">
+                       <tr>
+                            <td>
+                                Site name
+                            </td>
+                            <td>
+                                <label><input id="site_name" name="site_name" /></label>
+                            </td>
+                       </tr>
+                       <tr>
+                            <td>
+                                Site link
+                            </td>
+                            <td>
+                                <label><input id="site_link" name="site_link" /></label>
+                            </td>
+                        </tr>
+                       <tr>
+                            <td>
+                                Description
+                            </td>
+                            <td>
+                                <label><input id="site_desc" name="site_desc" /></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" name="button" value="Add" id="add_button" /></td>
+                        </tr>
+                    </table>
+                    
+                    <script>
+                        var form = document.querySelector("#form");
+                        var site_name = form.querySelector("#site_name");
+                        var site_link = form.querySelector("#site_link");
+                        var site_desc = form.querySelector("#site_desc");
+                        form.querySelector("#add_button").addEventListener('click', function(){
+                            var request = new XMLHttpRequest();
+                            var request_text = 'add?site_name=' + encodeURIComponent(site_name.value) +
+                                                '&site_link=' + encodeURIComponent(site_link.value) +
+                                                '&site_desc=' + encodeURIComponent(site_desc.value);
+                            request.open('post', request_text);
+                            request.send();
+                            request.addEventListener('load', function () {
+                                location.replace('/');
+                            });
+                        });
+                        var buttons = document.querySelectorAll('.remove');
+                        for(var i = 0; i < buttons.length; i++){
+                            buttons[i].addEventListener('click', function() {
+                                var itemId = this.getAttribute('data-id');
+                                var request = new XMLHttpRequest();
+                                var request_text = 'delete?id=' + encodeURIComponent(itemId);
+                                request.open('delete', request_text);
+                                request.send();
+                                request.addEventListener('load', function () {
+                                    location.reload();
+                                });
+                            });
+                        }
+                    </script>
                     <div class="col-6">
                         <p>
                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid commodi consequatur, deleniti, dignissimos dolor earum facilis laborum laudantium maxime molestias numquam officiis optio perspiciatis quis repellat sed veritatis.
