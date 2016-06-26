@@ -12,7 +12,6 @@ body{
 
 #page_container {
     position: relative;
-    min-height: 100%;
     height: auto !important;
     max-width: 1200px;
     margin-right: auto;
@@ -60,7 +59,7 @@ header > a{
 }
 
 #footer{
-    height: 120px;
+    height: 60px;
     text-align: center;
     padding: 0;
     width: 100%;
@@ -75,23 +74,27 @@ header > a{
     float: right;
     padding: 0.5%;
 }
-.col-1  {width:  8.5%; }
-.col-2  {width:  16.5%;}
-.col-3  {width:  25%;   }
-.col-4  {width:  33.5%;}
-.col-5  {width:  41.5%;}
-.col-6  {width:  50%;   }
-.col-7  {width:  58.5%;}
-.col-8  {width:  66.5%;}
-.col-9  {width:  75%;   }
-.col-10 {width:  83.5%;}
-.col-11 {width:  91.5%;}
-.col-12 {width:  98%;  }
+.col-1  {width:  8%; }
+.col-2  {width:  16%;}
+.col-3  {width:  24%;   }
+.col-4  {width:  32%;}
+.col-5  {width:  40%;}
+.col-6  {width:  48%;   }
+.col-7  {width:  56%;}
+.col-8  {width:  64%;}
+.col-9  {width:  72%;   }
+.col-10 {width:  80%;}
+.col-11 {width:  88%;}
+.col-12 {width:  96%;  }
 
 #content > [class^="col-"] {
     float: left;
-    padding: 1%;
+    padding: 0.5%;
 }
+#content > [class^="col-"]:last-child {
+    float: right;
+}
+
 
 #content-wrapper{
     margin-left: calc(1% + 180px);
@@ -101,6 +104,12 @@ header > a{
     display: inline-block;
 }
 
+#entry{
+    padding: 5px;
+}
+#line{
+    padding-top: 5px;
+}
 #backtotop-button{  
     right: 10px !important;
     bottom: 10px;  
@@ -126,7 +135,7 @@ header > a{
         margin-right: auto;
         width: 98%; 
     }
-    #scroll-up-button {
+    #backtotop-button {
         display: none;
     }
 }
