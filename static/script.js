@@ -1,16 +1,23 @@
 (function () {
     var scroll = function () {
-        var head = document.querySelector('#header');
-        var page = document.querySelector('#page_container');
+        var head = document.querySelector('#topnav');
         var side = document.querySelector('#sidemenu');
-        var cont = document.querySelector('#content-wrapper');
-        if(window.scrollY > 0) {
-            head.classList.add('fixed');
+        var button = document.querySelector('#backtotop-button');
+        if(window.pageYOffset  > 0){            
+            button.classList.remove('hidden');
+        }
+        else {            
+            button.classList.add('hidden');
+        }
+        if(window.scrollY > 126) {
+            head.classList.add('fixed-topnav');
             side.classList.add('fixed-sidemenu');
+            side.classList.remove('absolute-sidemenu');
         }
         else {
-            head.classList.remove('fixed');
+            head.classList.remove('fixed-topnav');
             side.classList.remove('fixed-sidemenu');
+            side.classList.add('absolute-sidemenu');
         }
     };
     var timer;

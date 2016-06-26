@@ -1,5 +1,4 @@
 #sidemenu{
-    position: fixed;
     width: 15%;
     max-width: 180px; 
     background-color: #343477; 
@@ -17,7 +16,7 @@
     text-decoration: none;
     font-size: 25px;
     color: #1D1936;
-    display: inline-block;
+    display: block;
     transition: 0.3s  
 }
 #sidemenu a:hover{  
