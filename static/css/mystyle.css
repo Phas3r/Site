@@ -122,6 +122,7 @@ header > a{
     padding-top: 5px;
 }
 #backtotop-button{  
+    z-index: 11;
     right: 10px !important;
     bottom: 10px;  
 	position: fixed;
@@ -140,6 +141,7 @@ header > a{
 	cursor: pointer;
 }
 #logout-button{  
+    z-index: 11;
     left: 10px !important;
     bottom: 10px;  
 	position: fixed;
