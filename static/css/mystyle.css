@@ -137,6 +137,12 @@ header > a{
 .hidden{
     display: none;
 }
+.hidden{
+    display: none;
+}
+.shown{
+    display: block;
+}
 #backtotop-button:hover {
 	cursor: pointer;
 }
@@ -194,5 +200,27 @@ h3.head{
     font-weight: normal;
     font-size: 24px; 
 }
+#alert {
+    padding: 20px;
+    background-color: #270F91;
+    color: white;
+}
 
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
+.closebtn:hover {
+    color: black;
+}
+
+#form{
+    margin-top: 50px
+}

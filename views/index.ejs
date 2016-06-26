@@ -24,10 +24,10 @@
         
         <div id="topnav" >
             <ul class="topmenu">
-                <li><a href="/login"> Login</a></li>
-                <li><a href="#"> Link2</a></li>
-                <li><a href="#"> Link3</a></li>
-                <li><a href="#"> useful links</a></li>
+                <li><a href="javaScript:void(0);" onclick="showAlert()"> Login</a></li>
+                <li><a href=""> Link2</a></li>
+                <li><a href=""> Link3</a></li>
+                <li><a href=""> useful links</a></li>
                 <li class="icon">
                     <a href="javascript:void(0);" style="font-size:15px;" onclick="showMenu()">Menu ☰</a>
                 </li>
@@ -35,11 +35,17 @@
         </div>
         <div id="sidemenu" class="absolute-sidemenu"> <h3 class="head">Main menu</h3>
             <a href="/">Home</a>
-            <a href="https://www.ya.ru">......</a>
+            <a href="https://www.ya.ru">External link</a>
             <a href="/grid">Grid</a>
 
         </div>
         <div id="content-wrapper">
+            
+            <div id="alert" class="hidden">
+                <span class="closebtn" onclick="closeAlert()">&times;</span>
+                <strong>Attention!</strong> You have already logged in.
+            </div>
+
             <div id="content">
                     <h2>Home</h2>
                     

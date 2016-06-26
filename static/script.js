@@ -37,3 +37,14 @@ function showMenu() {
 }
 
 
+function showAlert() {
+    var alert=document.querySelector('#alert');
+    alert.classList.add('shown');
+    alert.classList.remove('hidden');
+}
+
+function closeAlert() {
+    var alert=document.querySelector('#alert');
+    alert.classList.remove('shown');
+    alert.classList.add('hidden');
+}
